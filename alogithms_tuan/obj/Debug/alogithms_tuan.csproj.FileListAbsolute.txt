@@ -1,0 +1,7 @@
+D:\DemoGithub\alogithms_tuan\alogithms_tuan\bin\Debug\alogithms_tuan.exe.config
+D:\DemoGithub\alogithms_tuan\alogithms_tuan\bin\Debug\alogithms_tuan.exe
+D:\DemoGithub\alogithms_tuan\alogithms_tuan\bin\Debug\alogithms_tuan.pdb
+D:\DemoGithub\alogithms_tuan\alogithms_tuan\obj\Debug\alogithms_tuan.csproj.AssemblyReference.cache
+D:\DemoGithub\alogithms_tuan\alogithms_tuan\obj\Debug\alogithms_tuan.csproj.CoreCompileInputs.cache
+D:\DemoGithub\alogithms_tuan\alogithms_tuan\obj\Debug\alogithms_tuan.exe
+D:\DemoGithub\alogithms_tuan\alogithms_tuan\obj\Debug\alogithms_tuan.pdb
