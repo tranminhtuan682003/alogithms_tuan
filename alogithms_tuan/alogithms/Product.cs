@@ -8,7 +8,6 @@ namespace alogithms_tuan.alogithms
 {
     public class Product : IEnity
     {
-
         public string name { get; set; }
         public int price { get; set; }
         public int quality { get; set; }
@@ -21,7 +20,6 @@ namespace alogithms_tuan.alogithms
             this.quality = quality;
             this.categoryId = categoryId;
         }
-
         public void PrintInfor()
         {
             Console.WriteLine("----------------------------");

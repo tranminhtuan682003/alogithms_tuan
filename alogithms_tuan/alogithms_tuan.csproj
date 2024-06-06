@@ -45,8 +45,13 @@
   <ItemGroup>
     <Compile Include="alogithms\Category.cs" />
     <Compile Include="alogithms\CacBaiTap.cs" />
+    <Compile Include="alogithms\exam.cs" />
     <Compile Include="alogithms\IEnity.cs" />
+    <Compile Include="alogithms\Menu.cs" />
     <Compile Include="alogithms\Product.cs" />
+    <Compile Include="alogithms\ProductWithCategory.cs" />
+    <Compile Include="alogithms\Queue.cs" />
+    <Compile Include="alogithms\Stack.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

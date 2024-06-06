@@ -4,6 +4,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace alogithms_tuan.alogithms
 {
@@ -92,17 +93,18 @@ namespace alogithms_tuan.alogithms
         // bài 12
         public void SortByName(string tableName)
         {
-            for (int i = 1; i < mydatabase[tableName].Count ; i++)
+            int totalIndex = mydatabase[tableName].Count;
+            object temp;
+            for (int i = 1; i < totalIndex; i++)
             {
-                object key = mydatabase[tableName][i];
-                int j = i - 1;
-
-                while (j >= 0 && mydatabase[tableName][j].name.Length < mydatabase[tableName][i].name.Length)
+                int j = i;
+                while (j > 0 && mydatabase[tableName][j].name.Length > mydatabase[tableName][j - 1].name.Length)
                 {
-                    mydatabase[tableName][j + 1]= mydatabase[tableName][j];
+                    temp = mydatabase[tableName][j];
+                    mydatabase[tableName][j] = mydatabase[tableName][j - 1];
+                    mydatabase[tableName][j - 1] = (IEnity)temp;
                     j--;
                 }
-                mydatabase[tableName][j + 1] = (IEnity)key;
             }
         }
 
@@ -113,9 +115,21 @@ namespace alogithms_tuan.alogithms
         }
 
         // bài 14
-        public void mapProductByCategory()
+        public void mapProductByCategory(string Product,string Category)
         {
-            //coming soon
+            foreach(var product in mydatabase[Product])
+            {
+                foreach (var category in mydatabase[Category])
+                {
+                    if (product.id == category.id)
+                    {
+                        category.PrintInfor();
+                        product.PrintInfor();
+                    }
+                }
+            }
+
+
         }
 
         // bài 15
