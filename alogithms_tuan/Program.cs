@@ -27,16 +27,17 @@ namespace alogithms_tuan
 
             //Console.WriteLine(ex.MinByPrice());
             //ex.CallMonth(1000, 5, 0);
-            ex.sortByCategoryName();
-            var item = ex.ListCategory();
-            foreach(var category in item)
-            {
-                Console.WriteLine(category);
-            }
-            Console.WriteLine(ex.CallMonth(0,5,2));
-            Console.WriteLine(ex.CallMonthNoDequy(1000, 5));
 
-            ex.PrintMenu();
+            //ex.sortByCategoryName();
+            //var item = ex.ListCategory();
+            //foreach(var category in item)
+            //{
+            //    Console.WriteLine(category);
+            //}
+            //Console.WriteLine(ex.CallMonth(0,5,2));
+            //Console.WriteLine(ex.CallMonthNoDequy(1000, 5));
+
+            ex.PrintMenu(0, "");
         }
     }
 }

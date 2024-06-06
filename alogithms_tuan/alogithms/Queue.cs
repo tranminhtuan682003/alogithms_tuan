@@ -80,5 +80,4 @@ namespace alogithms_tuan.alogithms
             return data[(rear + 1) % capacity];
         }
     }
-
 }

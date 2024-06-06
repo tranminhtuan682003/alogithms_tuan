@@ -255,15 +255,6 @@ namespace algorithms_tuan.algorithms
             }
         }
 
-        // bài 23
-        public void PrintMenu()
-        {
-            foreach(var menu in menus)
-            {
-                menu.PrintInfor();
-            }
-        }
-
         public int CallMonthNoDequy(float money, float rate)
         {
             float target = money * 2;
@@ -276,7 +267,21 @@ namespace algorithms_tuan.algorithms
             return i;
         }
 
-        //ReturnProduct and category
+
+        // bài 23
+        public void PrintMenu(int parentId, string margin)
+        {
+            foreach (var menu in menus)
+            {
+                if (menu.idParent == parentId)
+                {
+                    Console.WriteLine($"{margin}{menu.title}");
+                    PrintMenu(menu.id, margin + "\t");
+                }
+            }
+        }
+
+        //Return Product and category
         public List<string> ListProduct()
         {
             return products.Select(item => item.name).ToList();
