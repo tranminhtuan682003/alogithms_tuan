@@ -13,6 +13,10 @@ namespace alogithms_tuan.alogithms
         int quality { get; set; }
         int categoryId { get; set; }
         int id {  get; set; }
+
+        /// <summary>
+        /// function PrintInfor to print information of Entities;
+        /// </summary>
         void PrintInfor();
     }
 }

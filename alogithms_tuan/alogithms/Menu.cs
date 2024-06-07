@@ -14,6 +14,9 @@ namespace alogithms_tuan.alogithms
         public string title;
         public int idParent;
 
+        /// <summary>
+        /// constructor of class Menu.
+        /// </summary>
         public Menu(int id, string title, int idParent)
         {
             this.id = id;
@@ -21,6 +24,9 @@ namespace alogithms_tuan.alogithms
             this.idParent = idParent;
         }
 
+        /// <summary>
+        /// funciton PrinInfor to print ìnormation of Menu
+        /// </summary>
         public void PrintInfor()
         {
             Console.WriteLine(title);

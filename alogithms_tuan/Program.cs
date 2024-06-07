@@ -15,7 +15,6 @@ namespace alogithms_tuan
             Exam ex = Exam.Instance;
             ex.AddProduct();
 
-
             //var result = ex.MapProductByCategory();
             //foreach (var product in result)
             //{
@@ -37,7 +36,19 @@ namespace alogithms_tuan
             //Console.WriteLine(ex.CallMonth(0,5,2));
             //Console.WriteLine(ex.CallMonthNoDequy(1000, 5));
 
-            ex.PrintMenu(0, "");
+            //var product = ex.FindProductByPrice(ex.GetProduct(), 120);
+            //foreach ( var item in product )
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //ex.PrintMenu(ex.GetMenu(),0, "");
+
+            //var bai13 = ex.SortByCategoryName();
+            //foreach (var item in bai13)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
     }
 }

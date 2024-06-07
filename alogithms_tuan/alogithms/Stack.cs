@@ -12,6 +12,9 @@ namespace alogithms_tuan.alogithms
         private int capacity;
         private T[] array;
 
+        /// <summary>
+        /// Initializes a new instance of the Stack class with a specified capacity.
+        /// </summary>
         public Stack(int initialCapacity)
         {
             capacity = initialCapacity;
@@ -19,16 +22,26 @@ namespace alogithms_tuan.alogithms
             top = -1;
         }
 
+        /// <summary>
+        /// Checks if the stack is empty.
+        /// </summary>
         public bool IsEmpty()
         {
             return top == -1;
         }
 
+
+        /// <summary>
+        /// Checks if the stack is full.
+        /// </summary>
         public bool IsFull()
         {
             return top == capacity - 1;
         }
 
+        /// <summary>
+        /// Pushes an item onto the stack. If the stack is full, it attempts to increase the capacity.
+        /// </summary>
         public void Push(T item)
         {
             if (IsFull())
@@ -42,6 +55,9 @@ namespace alogithms_tuan.alogithms
             array[++top] = item;
         }
 
+        /// <summary>
+        /// Updates the capacity of the stack.
+        /// </summary>
         public bool UpdateCapacity(int newCapacity)
         {
             if (newCapacity <= capacity)
@@ -56,6 +72,9 @@ namespace alogithms_tuan.alogithms
             return true;
         }
 
+        /// <summary>
+        /// Pops an item from the stack.
+        /// </summary>
         public T Pop()
         {
             if (IsEmpty())
@@ -65,6 +84,9 @@ namespace alogithms_tuan.alogithms
             return array[top--];
         }
 
+        /// <summary>
+        /// Peeks at the top item of the stack without removing it.
+        /// </summary>
         public T Peek()
         {
             if (IsEmpty())
@@ -74,6 +96,9 @@ namespace alogithms_tuan.alogithms
             return array[top];
         }
 
+        /// <summary>
+        /// Displays all items in the stack.
+        /// </summary>
         public void Display()
         {
             for (int i = 0; i <= top; i++)

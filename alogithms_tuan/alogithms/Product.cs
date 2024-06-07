@@ -13,6 +13,10 @@ namespace alogithms_tuan.alogithms
         public int quality { get; set; }
         public int categoryId { get; set; }
         public int id { get; set; }
+
+        /// <summary>
+        /// Constructor of class Product.
+        /// </summary>
         public Product(string name, int price,int quality, int categoryId)
         {
             this.name = name;
@@ -20,6 +24,10 @@ namespace alogithms_tuan.alogithms
             this.quality = quality;
             this.categoryId = categoryId;
         }
+
+        /// <summary>
+        /// funciton PrinInfor to print ìnormation of Product
+        /// </summary>
         public void PrintInfor()
         {
             Console.WriteLine("----------------------------");

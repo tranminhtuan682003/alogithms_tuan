@@ -22,6 +22,9 @@ namespace algorithms_tuan.algorithms
 
         private static Exam instance;
 
+        /// <summary>
+        /// Singleton instance of Exam class.
+        /// </summary>
         public static Exam Instance
         {
             get
@@ -34,6 +37,25 @@ namespace algorithms_tuan.algorithms
             }
         }
 
+        /// <summary>
+        /// Gets the list of products.
+        /// </summary>
+        public List<Product> GetProduct()
+        {
+            return products;
+        }
+
+        /// <summary>
+        /// Gets the list of menus.
+        /// </summary>
+        public List<Menu> GetMenu()
+        {
+            return menus;
+        }
+
+        /// <summary>
+        /// Initializes the Exam instance and populates products, categories, and menus.
+        /// </summary>
         private Exam()
         {
             products = new List<Product>();
@@ -43,6 +65,9 @@ namespace algorithms_tuan.algorithms
             categoryDictionary = new Dictionary<int, string>();
         }
 
+        /// <summary>
+        /// Adds predefined products, categories, and menus to the instance.
+        /// </summary>
         public void AddProduct()
         {
             //addProduct
@@ -74,10 +99,13 @@ namespace algorithms_tuan.algorithms
         }
 
         //bai4 
-        public List<string> FindProductByName(string name)
+        /// <summary>
+        /// Finds products by name with the input list Product and nameProduct
+        /// </summary>
+        public List<string> FindProductByName(List<Product> product,string name)
         {
             List<string> nameProduct = new List<string>();
-            foreach (var item in products)
+            foreach (var item in product)
             {
                 if (item.name.Equals(name))
                 {
@@ -88,9 +116,12 @@ namespace algorithms_tuan.algorithms
         }
 
         //bai5
-        public List<string> FindProductByCategory(int categoryId)
+        /// <summary>
+        /// Finds products by category ID with the input list Product and categoryId
+        /// </summary>
+        public List<string> FindProductByCategory(List<Product> product , int categoryId)
         {
-            foreach (var item in products)
+            foreach (var item in product)
             {
                 if (item.categoryId.Equals(categoryId))
                 {
@@ -101,9 +132,12 @@ namespace algorithms_tuan.algorithms
         }
 
         //bai6
-        public List<string> FindProductByPrice(int price)
+        /// <summary>
+        /// Finds products by price with the input List Product and priceProduct
+        /// </summary>
+        public List<string> FindProductByPrice(List<Product> product , int price)
         {
-            foreach (var item in products)
+            foreach (var item in product)
             {
                 if (item.price.Equals(price))
                 {
@@ -114,41 +148,52 @@ namespace algorithms_tuan.algorithms
         }
 
         // bai11
-        public void SortByPrice()
+        /// <summary>
+        /// Sorts the list of products by price in ascending order with input list Product
+        /// </summary>
+        public void SortByPrice(List<Product> product)
         {
-            for (int i = 0; i < products.Count; i++)
+            for (int i = 0; i < product.Count; i++)
             {
-                for (int j = 0; j < products.Count - i - 1; j++)
+                for (int j = 0; j < product.Count - i - 1; j++)
                 {
-                    if (products[j].price > products[j + 1].price)
+                    if (product[j].price > product[j + 1].price)
                     {
-                        Product objTemp = products[j];
-                        products[j] = products[j + 1];
-                        products[j + 1] = objTemp;
+                        Product objTemp = product[j];
+                        product[j] = product[j + 1];
+                        product[j + 1] = objTemp;
                     }
                 }
             }
         }
 
         // bai 12
-        public void SortByName()
+        /// <summary>
+        /// Sorts the list of products by name length in descending order with input list Product
+        /// </summary>
+        public void SortByName(List<Product> product)
         {
-            for (int i = 1; i < products.Count; i++)
+            for (int i = 1; i < product.Count; i++)
             {
                 int j = i;
-                while (j > 0 && products[j].name.Length > products[j - 1].name.Length)
+                while (j > 0 && product[j].name.Length > product[j - 1].name.Length)
                 {
-                    Product temp = products[j];
-                    products[j] = products[j - 1];
-                    products[j - 1] = temp;
+                    Product temp = product[j];
+                    product[j] = product[j - 1];
+                    product[j - 1] = temp;
                     j--;
                 }
             }
         }
 
         // bài 13
-        public void sortByCategoryName()
+        /// <summary>
+        /// Sorts products by their category names in ascending order.
+        /// </summary>
+        public List<string> SortByCategoryName()
         {
+            List<string> listProduct = new List<string>();
+
             for (int i = 1; i < categories.Count; i++)
             {
                 Category key = categories[i];
@@ -162,9 +207,28 @@ namespace algorithms_tuan.algorithms
                 categories[j + 1] = key;
             }
 
+            foreach (var itemCategory in categories)
+            {
+                categoryDictionary[itemCategory.id] = itemCategory.name;
+            }
+            foreach (var category in categories)
+            {
+                foreach (var itemProduct in products)
+                {
+                    if (itemProduct.categoryId == category.id)
+                    {
+                        listProduct.Add(itemProduct.name);
+                    }
+                }
+            }
+            return listProduct;
         }
 
+
         //bai 14
+        /// <summary>
+        /// Maps products to their respective categories.
+        /// </summary>
         public List<ProductWithCategory> MapProductByCategory()
         {
             foreach (var category in categories)
@@ -188,17 +252,20 @@ namespace algorithms_tuan.algorithms
 
 
         // bài 15
-        public string MinByPrice()
+        /// <summary>
+        /// Finds the product with the minimum price with input List Product
+        /// </summary>
+        public string MinByPrice(List<Product> product)
         {
             Product result = null;
             float minPrice = float.MaxValue;
 
-            foreach (var product in products)
+            foreach (var item in product)
             {
-                if (product.price < minPrice)
+                if (item.price < minPrice)
                 {
-                    minPrice = product.price;
-                    result = product;
+                    minPrice = item.price;
+                    result = item;
                 }
             }
 
@@ -206,17 +273,20 @@ namespace algorithms_tuan.algorithms
         }
 
         // bài 16
-        public string MaxByPrice()
+        /// <summary>
+        /// Finds the product with the maximum price with input ListProduct
+        /// </summary>
+        public string MaxByPrice(List<Product> product)
         {
             Product result = null;
             float minPrice = float.MinValue;
 
-            foreach (var product in products)
+            foreach (var item in product)
             {
-                if (product.price > minPrice)
+                if (item.price > minPrice)
                 {
-                    minPrice = product.price;
-                    result = product;
+                    minPrice = item.price;
+                    result = item;
                 }
             }
 
@@ -225,6 +295,9 @@ namespace algorithms_tuan.algorithms
         }
 
         // bài 21 sử dụng lãi kép
+        /// <summary>
+        /// Calculates future salary using compound interest recursively with input salary and year
+        /// </summary>
         public float CallSalary(float salary, int year)
         {
             if (year == 0)
@@ -234,13 +307,18 @@ namespace algorithms_tuan.algorithms
             return CallSalary(salary * 1.10f, year - 1);
         }
 
+        /// <summary>
+        /// Calculates future salary using compound interest without recursion with input salary and year
+        /// </summary>
         public float CallSalaryNoDequy(float salary, int year)
         {
             return (float) (salary * Math.Pow((1 + 0.1f), year));
         }
 
         // bài 22 sử dụng lãi kép
-
+        /// <summary>
+        /// Calculates the number of months to reach a target amount using compound interest recursively with input month, rate and target (double the money)
+        /// </summary>
         public int CallMonth(int month, float rate,float target)
         {
             float compounding = (1 + (rate / 1200));
@@ -255,6 +333,9 @@ namespace algorithms_tuan.algorithms
             }
         }
 
+        /// <summary>
+        /// Calculates the number of months to double the money using compound interest without recursion with the money start and rate.
+        /// </summary>
         public int CallMonthNoDequy(float money, float rate)
         {
             float target = money * 2;
@@ -269,29 +350,40 @@ namespace algorithms_tuan.algorithms
 
 
         // bài 23
-        public void PrintMenu(int parentId, string margin)
+        /// <summary>
+        /// Prints the menu items hierarchically based on parent-child relationships with the List Menu and parrentId,margin.
+        /// </summary>
+        public void PrintMenu(List<Menu> menu ,int parentId, string margin)
         {
-            foreach (var menu in menus)
+            foreach (var item in menu)
             {
-                if (menu.idParent == parentId)
+                if (item.idParent == parentId)
                 {
-                    Console.WriteLine($"{margin}{menu.title}");
-                    PrintMenu(menu.id, margin + "\t");
+                    Console.WriteLine($"{margin}{item.title}");
+                    PrintMenu(menu , item.id, margin + "--");
                 }
             }
         }
 
-        //Return Product and category
+        /// <summary>
+        /// Lists all product names.
+        /// </summary>
         public List<string> ListProduct()
         {
             return products.Select(item => item.name).ToList();
         }
+
+        /// <summary>
+        /// Lists all category names.
+        /// </summary>
         public List<string> ListCategory()
         {
             return categories.Select(item => item.name).ToList();
         }
 
-        //printProduct
+        /// <summary>
+        /// Prints information of all products.
+        /// </summary>
         public void PrintProduct()
         {
             foreach(var item in products)

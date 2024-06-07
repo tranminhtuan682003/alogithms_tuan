@@ -19,6 +19,9 @@ namespace alogithms_tuan.alogithms
             this.name = name;
         }
 
+        /// <summary>
+        /// funciton PrinInfor to print ìnormation of Category
+        /// </summary>
         public void PrintInfor()
         {
             Console.WriteLine("----------------------------");

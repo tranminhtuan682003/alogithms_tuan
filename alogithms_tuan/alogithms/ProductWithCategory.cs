@@ -10,6 +10,10 @@ namespace alogithms_tuan.alogithms
     {
         public string CategoryName { get; set; }
 
+
+        /// <summary>
+        /// Constructer of class ProductWithCategory
+        /// </summary>
         public ProductWithCategory(string name, int price, int quality, int categoryId, string categoryName) : base(name,price,quality,categoryId)
         {
             CategoryName = categoryName;
